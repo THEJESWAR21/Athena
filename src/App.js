@@ -4,7 +4,7 @@ import { faLock, faUser } from '@fortawesome/free-solid-svg-icons'
 import { faFacebook, faTwitter, faLinkedin, faInstagram} from "@fortawesome/free-brands-svg-icons"
 import logo from './img/teaching.svg';
 import "./App.css";
-
+//  React App code
 function App() {
 
 
