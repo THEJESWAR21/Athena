@@ -1,21 +1,39 @@
-import React, { Component } from "react";
- 
-class Contact extends Component {
-  render() {
-    return (
-        <div>
-          <h1>Simple SPA</h1>
-          <ul className="header">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Stuff</a></li>
-            <li><a href="#">Contact</a></li>
-          </ul>
-          <div className="content">
-             <h1>igjegpngunpgunrpg</h1>
+import React from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faLock, faUser } from '@fortawesome/free-solid-svg-icons'
+import { faFacebook, faTwitter, faLinkedin, faInstagram} from "@fortawesome/free-brands-svg-icons"
+import logo from './img/teaching.svg';
+import { Button } from 'reactstrap';
+import {Link} from 'react-router-dom';
+import "./App.css";
+//  React App code
+function Contact() {
+  return (
+    <div className="Contact">
+      <div className="container">
+      <div class="panels-container">
+        <div class="panel left-panel">
+          <div class="content">
+            <h3>New here ?</h3>
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis,
+              ex ratione. Aliquid!
+            </p>
+            <Link to='/'>
+            <Button  class="btn transparent" id="sign-up-btn"	outline color="primary">
+              Contact us
+            </Button>{''}
+            </Link>
           </div>
+          <img src={logo} alt="Logo" className="image"/>
         </div>
-    );
-  }
+       
+      </div>
+      </div>
+     
+    </div> 
+  );
 }
- 
+
+
 export default Contact;
