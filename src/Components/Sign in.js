@@ -4,8 +4,6 @@ import { faLock, faUser } from '@fortawesome/free-solid-svg-icons'
 import { faFacebook, faTwitter, faLinkedin, faInstagram} from "@fortawesome/free-brands-svg-icons"
 import logo from './img/teaching.svg';
 import { Button } from 'reactstrap';
-import { BrowserRouter,Switch,Route  } from 'react-router-dom';
-import Contact from "./Contact us";
 import "./App.css";
 //  React App code
 function Sign() {
@@ -64,7 +62,7 @@ function Sign() {
               Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis,
               ex ratione. Aliquid!
             </p>
-             <Button  class="btn transparent" id="sign-up-btn"	outline color="primary">
+             <Button  class="btn transparent" id="sign-up-btn"	outline color="primary" href="/Contact">
               Contact us
             </Button>{''}
  
