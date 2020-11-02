@@ -5,7 +5,7 @@ import { faFacebook, faTwitter, faLinkedin, faInstagram} from "@fortawesome/free
 import logo from './img/teaching.svg';
 import { Button } from 'reactstrap';
 import {Link} from 'react-router-dom';
-import "./App.css";
+import "./Signin.css";
 //  React App code
 function Sign() {
 
@@ -58,7 +58,7 @@ function Sign() {
         <div class="panels-container">
         <div class="panel left-panel">
           <div class="content">
-            <h3>New here ?</h3>
+            <h3>One of us ?</h3>
             <p>
               Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis,
               ex ratione. Aliquid!
