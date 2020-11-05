@@ -83,6 +83,7 @@ form.sign-in-form {
   text-align: center;
   line-height: 55px;
   color: #acacac;
+  transition: 0.5s;
   font-size: 1.1rem;
 }
 
@@ -99,35 +100,6 @@ form.sign-in-form {
 .input-field input::placeholder {
   color: #aaa;
   font-weight: 500;
-}
-abel,
-textarea {
-  display: block;
-}
-textarea {
-  width: 380px;
-  border: none;
-  border-radius: 20px;
-  outline: none;
-  padding: 10px;
-  font-family: "Poppins", sans-serif;
-  font-weight: 600;
-  font-size: 1em;
-  color: #333333;
-  transition: border 0.5s;
-  -webkit-transition: border 0.5s;
-  -moz-transition: border 0.5s;
-  -o-transition: border 0.5s;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-textarea {
-  background-color: #f0f0f0;
-  height: 120px;
-  resize: none;
-  overflow: auto;
 }
 
 .social-text {
@@ -177,7 +149,6 @@ textarea {
 
 .btn:hover {
   background-color: #4d84e2;
-  text-decoration: none;
 }
 .panels-container {
   position: absolute;
@@ -230,6 +201,8 @@ textarea {
 
 .panel .content {
   color: #fff;
+  transition: transform 0.9s ease-in-out;
+  transition-delay: 0.6s;
 }
 
 .panel h3 {
@@ -306,6 +279,7 @@ textarea {
     width: 100%;
     top: 95%;
     transform: translate(-50%, -100%);
+    transition: 1s 0.8s ease-in-out;
   }
 
   .signin-signup,
