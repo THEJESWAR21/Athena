@@ -1,6 +1,6 @@
 import React from "react";
-import "./App.css";
-import Sign from './Components/Signin-Signup';
+import Sign from './Components/Home';
+import Contact from './Components/Contact';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 //  React App code
 function App() {
@@ -8,7 +8,8 @@ function App() {
     <Router>
     <div className="App">
      <Switch>
-       <Route path="/" component={Sign}></Route>
+       <Route exact path="/" component={Sign}></Route>
+       <Route path="/Contact" component={Contact}></Route>
      </Switch>
     </div>
     </Router>
