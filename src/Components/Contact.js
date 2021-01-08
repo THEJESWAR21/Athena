@@ -19,7 +19,7 @@ function Contact() {
           <li><a href="/">Sign</a></li>    
           </ul>
         </div>
-      </div>
+      </div>  
       <div className="header">
         <h1>contact us</h1>
         <p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
@@ -42,7 +42,7 @@ function Contact() {
                 <i>
                 <FontAwesomeIcon icon={faComment}  />
                 </i>
-                <input type="textarea" placeholder="E-mail"></input>
+                <input type="textarea" placeholder="Message"></input>
                               </div>
               <input type="submit" value="Send" className="btn solid" href="Contactus">
               </input>

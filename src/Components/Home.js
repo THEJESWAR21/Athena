@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import "./Sign.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLock, faUser } from '@fortawesome/free-solid-svg-icons'
@@ -6,6 +6,7 @@ import { Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { faFacebook, faTwitter, faLinkedin, faInstagram} from "@fortawesome/free-brands-svg-icons"
 import teaching from './img/teaching.svg';
+import fire, {auth, generateUserDocument} from '../Config/fire';
 
 
 
@@ -27,6 +28,45 @@ function Sign() {
           
       }
 
+      const [email, setEmail] = useState('');
+      const [password, setPassword] = useState('');
+      const [error, setError] = useState(null);
+      const createUserWithEmailAndPasswordHandler = async (event, email, password) => {
+        event.preventDefault();
+        try{
+          const {user} = await auth.createUserWithEmailAndPassword(email, password);
+          generateUserDocument(user, {userName});
+        }
+        catch(error){
+          setError('Error Signing up with email and password');
+        }
+    
+        setEmail("");
+        setPassword("");
+        setUserName("");
+      };
+      const [userName, setUserName] = useState("");
+      const signInWithEmailAndPasswordHandler = (event, email, password) => {
+        event.preventDefault();
+        auth.signInWithEmailAndPassword(email, password).catch(error => {
+          setError("Error signing in with password and email!");
+          console.error("Error signing in with password and email", error);
+        });
+      };
+
+      const onChangeHandler = event => {
+        const { name, value } = event.currentTarget;
+        if (name === "userEmail") {
+          setEmail(value);
+        } else if (name === "userPassword") {
+          setPassword(value);
+        } else if (name === "userName") {
+          setUserName(value);
+        }
+      };
+    
+  
+
   return (
     <div className="Sign">
      
@@ -42,13 +82,21 @@ function Sign() {
                 <i>
                 <FontAwesomeIcon icon={faUser} />
                 </i>
-                <input type="text" placeholder="Username"></input>
+                <input type="text" placeholder="Username"   type="email"
+            name="userEmail"
+            value = {email}
+            id="userEmail"
+            onChange = {(event) => onChangeHandler(event)} ></input>
               </div>
               <div className="input-field">
                 <i>
                 <FontAwesomeIcon icon={faLock} />
                 </i>
-                <input type="password" placeholder="Password"></input>
+                <input type="password" placeholder="Password"type="password"
+            name="userPassword"
+            value = {password}
+            id="userPassword"
+            onChange = {(event) => onChangeHandler(event)}></input>
               </div>
               <input type="submit" value="Login" className="btn solid" href="Contactus">
               </input>
@@ -70,20 +118,42 @@ function Sign() {
                </form>
 
           <form action="#" className="sign-up-form">
-          <h2 className="title">Sign in</h2>           
+          <h2 className="title">Sign up</h2>           
               <div className="input-field">
                 <i>
                 <FontAwesomeIcon icon={faUser} />
                 </i>
-                <input type="text" placeholder="Username"></input>
+                <input type="text" placeholder="Username"  type="text"
+            name="Username"
+            value={userName}
+            id="userName"
+            onChange={event => onChangeHandler(event)}></input>
+              </div>
+              <div className="input-field">
+                <i>
+                <FontAwesomeIcon icon={faUser} />
+                </i>
+                <input type="text" placeholder="Email"        type="email"
+            name="userEmail"
+            value={email}
+            id="userEmail"
+            onChange={event => onChangeHandler(event)}></input>
               </div>
               <div className="input-field">
                 <i>
                 <FontAwesomeIcon icon={faLock} />
                 </i>
-                <input type="password" placeholder="Password"></input>
+                <input type="password" placeholder="Password"   type="password"
+            className="mt-1 mb-3 p-1 w-full"
+            name="userPassword"
+            value={password}
+            id="userPassword"
+            onChange={event => onChangeHandler(event)}></input>
               </div>
-              <input type="submit" value="Login" className="btn solid" href="Contactus">
+              <input type="submit" value="Login" className="btn solid" href="Contactus"      onClick={event => {
+              createUserWithEmailAndPasswordHandler(event, email, password);
+            }}
+     >
               </input>
               <p className="social-text">Social Platforms</p>
               <div className="social-media">
